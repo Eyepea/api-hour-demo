@@ -1,0 +1,5 @@
+check process cache_updater with pidfile /run/lock/api-hour-demo.pid
+	group api-hour-demo
+	start program = "/etc/init.d/api-hour-demo start"
+	stop program = "/etc/init.d/api-hour-demo stop"
+	if 5 restarts within 5 cycles then timeout

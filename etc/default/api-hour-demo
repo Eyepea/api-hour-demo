@@ -1,0 +1,3 @@
+# Start the daemon by default, let the user disable it.
+START_DAEMON=yes
+DAEMON_ARGS="--config_dir=/etc/api-hour-demo -ac --chdir=/opt/api-hour-demo  api-hour-demo:Container"

@@ -1,0 +1,7 @@
+/var/log/api-hour-demo/api-hour-demo.log {
+    daily
+    rotate 15
+    compress
+    copytruncate
+    missingok
+}

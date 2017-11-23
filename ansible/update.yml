@@ -1,0 +1,20 @@
+---
+- name: Install api-hour-demo on a server
+  hosts:
+        - api-hour.example.com
+  gather_facts: False
+  tasks:
+        - name: Update main repo
+          command: "git push"
+          delegate_to: localhost
+
+        - name: Pull the fresh code
+          git: repo=https://github.com/Eyepea/api-hour-demo dest=/opt/api-hour-demo
+
+        - name: Install requirements
+          pip: requirements=/opt/api-hour-demo/requirements.txt
+               virtualenv=/opt/api-hour-demo/pyvenv
+               virtualenv_command=/usr/local/pythonz/pythons/CPython-3.5.1/bin/pyvenv
+
+        - name: Restart the service
+          service: name=api-hour-demo state=restarted
